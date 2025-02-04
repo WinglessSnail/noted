@@ -1,12 +1,14 @@
+import axios from "axios"
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL + "/todo"
 
-export const fetchTodos = async (API_URL) => {
+export const fetchTodos = async (API_URL: string) => {
     const res = await axios.get(API_URL)
     return res.data
 } 
 
-export const addTodo = async (title : string) => {
+export const addTodo = async (title : string) => {  
+    
     const res = await axios.post(API_URL, {title})
     return res.data
 }
